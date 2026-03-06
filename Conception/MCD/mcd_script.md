@@ -1,7 +1,7 @@
-POSSEDER, 0N USER, 11 TOKEN
-USER: id_user, pseudo, email, mot_de_passe, avatar, role
-PARTICIPER, 0N USER, 0N EVENEMENT : statut_reponse
+POSSEDER, 0N UTILISATEUR, 11 TOKEN
+UTILISATEUR: ref_utilisateur, pseudo, email, mot_de_passe, avatar, role
+PARTICIPER, 0N UTILISATEUR, 0N EVENEMENT : statut_reponse
 
-TOKEN: id_token, valeur, type
-CREER, 0N USER, 11 EVENEMENT
-EVENEMENT: id_event, titre, date, ville, statut_event
+TOKEN: ref_token, valeur, type
+CREER, 0N UTILISATEUR, 11 EVENEMENT
+EVENEMENT: ref_evenement, titre, date, ville, statut_evenement
