@@ -1,5 +1,19 @@
 # User stories
 
+## Vision du Produit & Périmètre du MVP
+
+Le **Problème** : L'organisation de sorties entre amis sur les messageries classiques (WhatsApp, Twitter) est chaotique. Les informations se perdent dans le flux des discussions et il est difficile de savoir précisément qui sera présent.
+
+La **Cible** : Les groupes d'amis ou petites communautés.
+
+La **Solution** (Le MVP) : Une application mobile centralisée, allant droit au but, qui permet uniquement de :
+
+- Proposer un événement (Quoi, Quand, Où).
+- Forcer une réponse claire des invités (Présent / Absent / En attente).
+- Visualiser en un coup d'œil la liste des participants.
+
+_(Toute fonctionnalité sociale annexe, comme les commentaires ou les sondages de dates, est volontairement exclue de cette version 1.0 pour garantir un développement rapide et focus sur le besoin primaire)_.
+
 ## Visiteur
 
 | En tant que | Je souhaite pouvoir                        | Afin de                                                  |
