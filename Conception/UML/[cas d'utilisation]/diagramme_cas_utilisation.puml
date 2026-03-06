@@ -1,0 +1,42 @@
+@startuml Planner
+left to right direction
+
+actor Visiteur
+actor Membre
+actor Admin
+
+Admin <|-- Membre
+Membre <|-- Visiteur
+
+rectangle "Planner - Cas d'utilisation" {
+
+  ' --- Bloc Visiteur ---
+  usecase "S'inscrire" as UC_Inscrire
+  usecase "Se connecter" as UC_Connecter
+
+  ' --- Bloc Membre ---
+  usecase "Gérer son profil" as UC_Profil
+  usecase "Consulter les sorties du groupe" as UC_Consulter
+  usecase "Répondre à une invitation\n(Présent / Absent)" as UC_Repondre
+  usecase "Proposer une nouvelle sortie" as UC_Proposer
+  usecase "Gérer ses propres sorties\n(Modifier / Supprimer)" as UC_GererSorties
+
+  ' --- Bloc Admin ---
+  usecase "Modérer n'importe quelle sortie" as UC_ModererSortie
+  usecase "Bannir / Supprimer un compte" as UC_ModererUser
+}
+
+' Liaisons
+Visiteur --> UC_Inscrire
+Visiteur --> UC_Connecter
+
+Membre --> UC_Profil
+Membre --> UC_Consulter
+Membre --> UC_Repondre
+Membre --> UC_Proposer
+Membre --> UC_GererSorties
+
+Admin --> UC_ModererSortie
+Admin --> UC_ModererUser
+
+@enduml
