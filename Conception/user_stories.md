@@ -1,10 +1,17 @@
-## User stories
+# User stories
+
+## Visiteur
+
+| En tant que | Je souhaite pouvoir                        | Afin de                                                  |
+| ----------- | ------------------------------------------ | -------------------------------------------------------- |
+| visiteur    | découvrir le concept sur l'écran d'accueil | comprendre à quoi sert l'application avant de m'inscrire |
+| visiteur    | m'inscrire                                 | créer mon compte et accéder aux fonctionnalités membres  |
+| visiteur    | me connecter                               | retrouver mon profil et mes sorties en toute sécurité    |
+
+## Membre
 
 | En tant que | Je souhaite pouvoir                           | Afin de                                                       |
 | ----------- | --------------------------------------------- | ------------------------------------------------------------- |
-| visiteur    | découvrir le concept sur l'écran d'accueil    | comprendre à quoi sert l'application avant de m'inscrire      |
-| visiteur    | m'inscrire                                    | créer mon compte et accéder aux fonctionnalités membres       |
-| visiteur    | me connecter                                  | retrouver mon profil et mes sorties en toute sécurité         |
 | membre      | me déconnecter                                | protéger l'accès à mon compte sur mon téléphone               |
 | membre      | modifier mon profil                           | garder mes informations (pseudo, avatar) à jour               |
 | membre      | participer à une sortie                       | prévenir le créateur et les autres de ma présence             |
@@ -15,5 +22,10 @@
 | membre      | proposer une sortie                           | organiser un événement avec mon groupe                        |
 | membre      | modifier une sortie que j'ai proposé          | corriger une erreur ou changer les plans (lieu, heure)        |
 | membre      | supprimer une sortie que j'ai proposé         | annuler définitivement l'événement s'il n'a plus lieu         |
-| admin       | supprimer un compte utilisateur               | modérer l'application en cas de comportement inapproprié      |
-| admin       | supprimer une sortie                          | nettoyer la base de données ou modérer un événement           |
+
+## Admin
+
+| En tant que | Je souhaite pouvoir             | Afin de                                                  |
+| ----------- | ------------------------------- | -------------------------------------------------------- |
+| admin       | supprimer un compte utilisateur | modérer l'application en cas de comportement inapproprié |
+| admin       | supprimer une sortie            | nettoyer la base de données ou modérer un événement      |
