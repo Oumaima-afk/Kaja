@@ -1,0 +1,16 @@
+@startuml Diagramme d'architecture Planner
+node "Appareil Mobile (iOS / Android)" {
+  [Front : React Native]
+}
+
+node "Serveur (Node.js)" {
+  [Backend : API Express + TypeScript]
+}
+
+database "Base de données" {
+  [PostgreSQL]
+}
+
+[Front : React Native] <--> [Backend : API Express + TypeScript] : Requêtes HTTP / JSON (REST)
+[Backend : API Express + TypeScript] <--> [PostgreSQL] : SQL (Prisma ORM)
+@enduml
