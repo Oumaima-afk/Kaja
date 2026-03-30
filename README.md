@@ -4,7 +4,7 @@
 
 ---
 
-## 🧭 À propos du projet
+## À propos du projet
 
 Kaja est un projet personnel en cours de développement.  
 L'idée est simple : faciliter l'organisation de sorties entre amis — proposer des activités, voter, valider une date, le tout au même endroit.
@@ -13,7 +13,7 @@ Ce projet est aussi l'occasion pour moi de monter en compétences sur **React Na
 
 ---
 
-## 📐 État d'avancement
+## État d'avancement
 
 Le projet est actuellement en phase de conception.
 
@@ -30,7 +30,7 @@ Le projet est actuellement en phase de conception.
 
 ---
 
-## 🛠️ Stack envisagée
+## Stack envisagée
 
 ### Back-end
 ![NestJS](https://img.shields.io/badge/Nestjs-%23E0234E.svg?style=flat&logo=nestjs&logoColor=white)
@@ -47,6 +47,6 @@ Le projet est actuellement en phase de conception.
 
 ---
 
-## 👩‍💻 Auteure
+## Auteure
 
 **Oumaïma Afakkir** — Conceptrice Développeuse d'Applications  
