@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id_user     String       @id       @default(uuid())    @db.Uuid  
+
+  pseudo        String        @db.VarChar(20)      @unique
+  email         String        @db.VarChar(50)      @unique
+  password      String        @db.VarChar(100)
+
+  avatar        String?       @db.VarChar(100)
+
+  role          String        @db.VarChar(10)       @default("MEMBER")
+
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+  deleted_at    DateTime?
+
+  tokens            Token[]
+  events            Event[]
+  participation     Participation[]
+
+  @@map("user")
+}
+
+model Token {
+  id_token     String       @id       @default(uuid())    @db.Uuid
+
+  value        String        @db.VarChar(255)      @unique
+  type         String        @db.VarChar(20)
+
+  id_user      String        @db.Uuid 
+  user         User          @relation(fields: [id_user], references: [id_user])
+
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+
+  @@map("token")
+}
+
+model Event {
+  id_event     String       @id       @default(uuid())    @db.Uuid
+
+  title        String        @db.VarChar(50)
+  date         DateTime      @db.Date
+  city         String?        @db.VarChar(50)
+  status       String        @db.VarChar(20)       @default("PUBLISHED")
+
+  id_user      String        @db.Uuid 
+  user         User          @relation(fields: [id_user], references: [id_user])
+
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+
+  participation     Participation[]
+
+  @@map("event")
+}
+
+model Participation {
+  status       String        @db.VarChar(20)       @default("PENDING")
+
+  id_user      String        @db.Uuid 
+  user         User          @relation(fields: [id_user], references: [id_user])
+
+  id_event     String        @db.Uuid 
+  event        Event         @relation(fields: [id_event], references: [id_event])
+
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+
+  @@id([id_user, id_event])
+  @@map("participation")
+}
