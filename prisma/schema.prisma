@@ -5,6 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url = env("DATABASE_URL")
 }
 
 model User {
@@ -35,7 +36,7 @@ model Token {
   value        String        @db.VarChar(255)      @unique
   type         String        @db.VarChar(20)
 
-  id_user      String
+  id_user      String        @db.Uuid 
   user         User          @relation(fields: [id_user], references: [id_user])
 
   created_at    DateTime      @default(now())
@@ -52,7 +53,7 @@ model Event {
   city         String?        @db.VarChar(50)
   status       String        @db.VarChar(20)       @default("PUBLISHED")
 
-  id_user      String
+  id_user      String        @db.Uuid 
   user         User          @relation(fields: [id_user], references: [id_user])
 
   created_at    DateTime      @default(now())
@@ -66,10 +67,10 @@ model Event {
 model Participation {
   status       String        @db.VarChar(20)       @default("PENDING")
 
-  id_user      String
+  id_user      String        @db.Uuid 
   user         User          @relation(fields: [id_user], references: [id_user])
 
-  id_event     String
+  id_event     String        @db.Uuid 
   event        Event         @relation(fields: [id_event], references: [id_event])
 
   created_at    DateTime      @default(now())
