@@ -1,8 +1,35 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ConfigService } from '@nestjs/config';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+
+  app.setGlobalPrefix('api');
+
+  const configService = app.get(ConfigService);
+
+  const port = configService.get<number>('port') || 3333;
+
+  const config = new DocumentBuilder()
+    .setTitle('Backend Kaja')
+    .setDescription('The Kaja API description')
+    .setVersion('1.0')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        description: 'Entrez votre token JWT ici',
+      },
+      'access-token',
+    )
+    .build();
+
+  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('', app, documentFactory);
+
+  await app.listen(port ?? 3000);
 }
 bootstrap();
