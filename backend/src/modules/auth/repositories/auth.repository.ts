@@ -10,4 +10,8 @@ export class AuthRepository {
   async register(data: RegisterDto): Promise<User> {
     return await this.prisma.user.create({ data });
   }
+
+  async findByEmail(email: string): Promise<User | null> {
+    return await this.prisma.user.findUnique({ where: { email } });
+  }
 }
