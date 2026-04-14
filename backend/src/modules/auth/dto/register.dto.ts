@@ -22,7 +22,6 @@ export const registerSchema = z
         'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial',
       ),
     avatar: z.string().url("L'avatar doit être une URL valide").optional(),
-    role: z.string().default('MEMBER'),
   })
   .strict();
 
@@ -54,11 +53,4 @@ export class RegisterSwaggerDto {
     required: false,
   })
   avatar?: string;
-
-  @ApiProperty({
-    example: 'MEMBER',
-    description: "Rôle de l'utilisateur",
-    enum: ['MEMBER', 'ADMIN'],
-  })
-  role: string;
 }

@@ -6,5 +6,14 @@ import { RegisterDto } from '../dto/register.dto';
 export class RegisterService {
   constructor(private readonly authRepository: AuthRepository) {}
 
-  async execute(body: RegisterDto): Promise<void> {}
+  async execute(body: RegisterDto): Promise<void> {
+    const hashedPassword = '';
+
+    await this.authRepository.register({
+      pseudo: body.pseudo,
+      email: body.email,
+      password: hashedPassword,
+      avatar: body.avatar,
+    });
+  }
 }
