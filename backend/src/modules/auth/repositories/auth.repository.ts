@@ -11,6 +11,10 @@ export class AuthRepository {
     return await this.prisma.user.create({ data });
   }
 
+  async findByPseudo(psuedo: string): Promise<User | null> {
+    return await this.prisma.user.findUnique({ where: { psuedo } });
+  }
+
   async findByEmail(email: string): Promise<User | null> {
     return await this.prisma.user.findUnique({ where: { email } });
   }
