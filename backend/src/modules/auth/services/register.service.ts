@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { AuthRepository } from '../repositories/auth.repository';
 import { RegisterDto } from '../dto/register.dto';
-import { User } from '@prisma/client';
 import { ensureUniqueness } from '@/common/utils/uniqueness.utils';
 import { hashData } from '../utils/hash.util';
+import { User } from 'generated/prisma';
 
 @Injectable()
 export class RegisterService {

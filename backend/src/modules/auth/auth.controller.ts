@@ -35,8 +35,8 @@ export class AuthController {
   @ApiOkResponse({ description: 'Connexion réussie' })
   @ApiBadRequestResponse({ description: 'Données invalides' })
   async login(@Body() body: RegisterDto) {
-    await this.authService.login(body);
+    const { user } = await this.authService.login(body);
 
-    return { message: 'Connexion réussie' };
+    return { message: 'Connexion réussie', user };
   }
 }
