@@ -8,7 +8,7 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import type { RegisterDto } from './dto/register.dto';
+import { RegisterSwaggerDto, type RegisterDto } from './dto/register.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -16,7 +16,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('register')
-  @ApiBody({})
+  @ApiBody({ type: RegisterSwaggerDto })
   @ApiOperation({ summary: 'Inscrire un nouvel utilisateur' })
   @ApiOkResponse({ description: 'Nouvel utilisateur créé avec succès' })
   @ApiBadRequestResponse({ description: 'Données invalides' })
@@ -27,5 +27,16 @@ export class AuthController {
     await this.authService.register(body);
 
     return { message: 'Inscription réussie' };
+  }
+
+  @Post('login')
+  @ApiBody({})
+  @ApiOperation({ summary: 'Connexion à un compte' })
+  @ApiOkResponse({ description: 'Connexion réussie' })
+  @ApiBadRequestResponse({ description: 'Données invalides' })
+  async login(@Body() body: RegisterDto) {
+    await this.authService.login(body);
+
+    return { message: 'Connexion réussie' };
   }
 }

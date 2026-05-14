@@ -1,9 +1,7 @@
+import { REGEX_PASSWORD } from '@/common/regex/email.regex';
+import { REGEX_EMAIL } from '@/common/regex/password.regex';
 import { ApiProperty } from '@nestjs/swagger';
 import { z } from 'zod';
-
-const REGEX_EMAIL = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
-const REGEX_PASSWORD =
-  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/;
 
 export const registerSchema = z
   .object({
@@ -21,7 +19,7 @@ export const registerSchema = z
         REGEX_PASSWORD,
         'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial',
       ),
-    avatar: z.string().url("L'avatar doit être une URL valide").optional(),
+    avatar: z.string("L'avatar doit être une URL valide").optional(),
   })
   .strict();
 
