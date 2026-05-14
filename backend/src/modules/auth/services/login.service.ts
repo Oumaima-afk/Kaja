@@ -1,16 +1,14 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthRepository } from '../repositories/auth.repository';
 import { LoginDto } from '../dto/login.dto';
-import { Token, User } from 'generated/prisma';
+import { User } from 'generated/prisma';
 import { compareHash } from '../utils/hash.util';
 
 @Injectable()
 export class LoginService {
   constructor(private readonly authRepository: AuthRepository) {}
 
-  async execute(
-    body: LoginDto,
-  ): Promise<{
+  async execute(body: LoginDto): Promise<{
     user: {
       id_user: string;
       pseudo: string;
