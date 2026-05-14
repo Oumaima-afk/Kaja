@@ -33,11 +33,12 @@ const styles = StyleSheet.create({
   subtitle: {
     color: '#fff',
     fontSize: 18,
+    fontFamily: 'roboto',
     marginTop: 10,
     opacity: 0.8,
   },
   buttonContainer: {
-    width: '100%',
+    width: '50%',
     marginTop: 50,
   },
   buttonPrimary: {
