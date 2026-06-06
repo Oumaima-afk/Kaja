@@ -23,4 +23,8 @@ export class AuthRepository {
   async login(data: LoginDto): Promise<User> {
     return await this.prisma.user.findUnique({ data });
   }
+
+  async logout(): Promise<User> {
+    return await this.prisma.user.findUnique({});
+  }
 }

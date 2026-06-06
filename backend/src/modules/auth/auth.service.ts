@@ -11,11 +11,15 @@ export class AuthService {
     private readonly loginService: LoginService,
   ) {}
 
-  register(body: RegisterDto) {
+  async register(body: RegisterDto) {
     return this.registerService.execute(body);
   }
 
-  login(body: LoginDto) {
+  async login(body: LoginDto) {
     return this.loginService.execute(body);
+  }
+
+  async logout() {
+    return this.loginService.execute();
   }
 }

@@ -39,4 +39,14 @@ export class AuthController {
 
     return { message: 'Connexion réussie', user };
   }
+
+  @Post('logout')
+  @ApiBody({})
+  @ApiOperation({ summary: "Déconnexion d'un compte" })
+  @ApiOkResponse({ description: 'Déconnexion réussie' })
+  @ApiBadRequestResponse({ description: 'Données invalides' })
+  async logout() {
+    await this.authService.logout();
+    return { message: 'Déconnexion réussie' };
+  }
 }
